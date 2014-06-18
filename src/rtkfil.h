@@ -1,0 +1,7 @@
+enum {
+    RTKFIL_AUDIO_IN_0 = 0,
+    RTKFIL_AUDIO_IN_1,
+    RTKFIL_AUDIO_OUT_0,
+    RTKFIL_AUDIO_OUT_1,
+    RTKFIL_GAIN,
+};

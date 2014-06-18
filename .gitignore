@@ -1,0 +1,8 @@
+/build
+/doc/html
+
+*.swp
+cscope.*
+tags
+.cproject
+.project

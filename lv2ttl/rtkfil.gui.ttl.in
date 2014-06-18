@@ -1,0 +1,4 @@
+fil:@LV2NAME@_gl
+    a @UI_TYPE@ ;
+    @UI_REQ@
+    .
