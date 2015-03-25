@@ -1,10 +1,10 @@
 #include <stdlib.h>
 #include <string.h>
-#include <lv2plugin.hpp>
+#include <lvtk/plugin.hpp>
 #include "lv2/lv2plug.in/ns/lv2core/lv2.h"
 #include "rtkfil.h"
 
-using namespace LV2;
+using namespace lvtk;
 
 class RtkFil : public Plugin<RtkFil> {
 public:

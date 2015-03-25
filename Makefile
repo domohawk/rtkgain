@@ -16,7 +16,8 @@ RW?=robtk/
 LIB_EXT=.so
 
 LV2DIR ?= $(PREFIX)/$(LIBDIR)/lv2
-LOADLIBES=-lm -llv2-plugin
+# TODO: why does lvtk installer add '-1'?
+LOADLIBES=-lm `pkg-config --libs lvtk-plugin-1`
 
 LV2NAME=rtkfil
 BUNDLE=rtkfil.lv2
@@ -101,7 +102,8 @@ ifneq ($(MAKECMDGOALS), submodules)
 endif
 
 override CFLAGS += -fPIC
-override CFLAGS += `pkg-config --cflags lv2 --libs lv2-plugin`
+# TODO: again the '-1' i find annoying
+override CFLAGS += `pkg-config --cflags lv2 --cflags lvtk-1`
 
 #######################################
 IM=/gui/img/

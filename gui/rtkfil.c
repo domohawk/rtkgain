@@ -145,15 +145,17 @@ instantiate(void* const               ui_toplevel,
     ui->w_tbl = rob_table_new(1, 1, FALSE);
     ui->spn_gain = robtk_spin_new(0.0, 2.0, 0.1);
     robtk_spin_set_default(ui->spn_gain, 1.0);
-    //robtk_spin_set_value(ui->spn_gdecay, 1.0);
+    robtk_spin_set_value(ui->spn_gain, 1.0);
     //robtk_spin_set_alignment(ui->spn_gain, 0.0, 0.5);
     robtk_spin_label_width(ui->spn_gain,    12.0, 32);
     robtk_spin_set_callback(ui->spn_gain, cb_gain, ui);
+    // TODO clean this up
+    cb_gain(NULL, ui);
 
     // Layout
-    rob_table_attach_defaults(ui->w_tbl, robtk_spin_widget(ui->spn_gain), 4, 5, 0 ,1);
+    rob_table_attach_defaults(ui->w_tbl, robtk_spin_widget(ui->spn_gain), 0, 1, 0 ,1);
     rob_vbox_child_pack(ui->frame, ui->rw, FALSE, TRUE);
-    rob_vbox_child_pack(ui->frame, ui->w_tbl, FALSE, TRUE);
+    rob_vbox_child_pack(ui->frame, ui->w_tbl, TRUE, TRUE);
 
     *widget = ui->frame;
 
