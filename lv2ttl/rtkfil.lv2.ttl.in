@@ -1,7 +1,7 @@
-fil:rtkfil
+fil:@LV2NAME@
     a lv2:Plugin ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-    doap:name "rtkfil" ;
+    doap:name "@LV2NAME@" ;
     lv2:project <http://github.com/domohawk/lv2/@LV2NAME@> ;
     lv2:optionalFeature lv2:hardRTCapable;
     ui:ui @FILGUI@ ;

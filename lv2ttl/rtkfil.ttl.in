@@ -1,6 +1,6 @@
 @prefix atom:  <http://lv2plug.in/ns/ext/atom#> .
 @prefix doap:  <http://usefulinc.com/ns/doap#> .
-@prefix fil:   <http://github.com/domohawk/lv2/rtkfil#> .
+@prefix fil:   <http://github.com/domohawk/lv2/@LV2NAME@#> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 @prefix kx:    <http://kxstudio.sf.net/ns/lv2ext/external-ui#> .
 @prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
@@ -21,7 +21,7 @@
         foaf:mbox <mailto:domohawk@gmail.com> ;
         foaf:homepage <http://github.com/domohawk> .
 
-<http://github.com/domohawk/lv2/rtkfil>
+<http://github.com/domohawk/lv2/@LV2NAME@>
         a doap:Project ;
         doap:maintainer <http://github.com/domohawk#me> ;
         doap:name "RobTK Filter" .
