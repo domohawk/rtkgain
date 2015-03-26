@@ -3,10 +3,10 @@
 #include <string.h>
 #include <math.h>
 
-#include "src/rtkfil.h"
+#include "src/rtkgain.h"
 
-#define MTR_URI "http://github.com/domohawk/lv2/rtkfil#"
-#define MTR_GUI "rtkfil"
+#define MTR_URI "http://github.com/domohawk/lv2/rtkgain#"
+#define MTR_GUI "rtkgain"
 
 #define LVGL_RESIZEABLE
 
@@ -94,7 +94,7 @@ static bool cb_gain(RobWidget *w, gpointer handle) {
 //        return TRUE;
 //    }
     // TODO share index with header
-    ui->write(ui->controller, RTKFIL_GAIN, sizeof(float), 0, (const void*) &val);
+    ui->write(ui->controller, RTKGAIN_GAIN, sizeof(float), 0, (const void*) &val);
     //save_state(ui);
     return TRUE;
 }
@@ -119,11 +119,11 @@ instantiate(void* const               ui_toplevel,
     *widget = NULL;
 
     if (!ui) {
-        fprintf (stderr, "rtkfil.lv2: out of memory.\n");
+        fprintf (stderr, "rtkgain.lv2: out of memory.\n");
         return NULL;
     }
 
-    if(strcmp(plugin_uri, MTR_URI "rtkfil")) {
+    if(strcmp(plugin_uri, MTR_URI "rtkgain")) {
         free(ui);
         fprintf(stderr, "invalid uri: %s : %s\n", plugin_uri, MTR_URI);
         return NULL;
@@ -132,7 +132,7 @@ instantiate(void* const               ui_toplevel,
     ui->write = write_function;
     ui->controller = controller;
 
-    ui->frame = rob_vbox_new(FALSE, 2);
+    ui->frame = rob_hbox_new(FALSE, 2);
     robwidget_make_toplevel(ui->frame, ui_toplevel);
     ROBWIDGET_SETNAME(ui->frame, "gtkfil");
 
@@ -154,8 +154,8 @@ instantiate(void* const               ui_toplevel,
 
     // Layout
     rob_table_attach_defaults(ui->w_tbl, robtk_spin_widget(ui->spn_gain), 0, 1, 0 ,1);
-    rob_vbox_child_pack(ui->frame, ui->rw, FALSE, TRUE);
-    rob_vbox_child_pack(ui->frame, ui->w_tbl, TRUE, TRUE);
+    rob_hbox_child_pack(ui->frame, ui->rw, FALSE, TRUE);
+    rob_hbox_child_pack(ui->frame, ui->w_tbl, TRUE, TRUE);
 
     *widget = ui->frame;
 

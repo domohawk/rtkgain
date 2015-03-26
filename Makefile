@@ -19,11 +19,11 @@ LV2DIR ?= $(PREFIX)/$(LIBDIR)/lv2
 # TODO: why does lvtk installer add '-1'?
 LOADLIBES=-lm `pkg-config --libs lvtk-plugin-1`
 
-LV2NAME=rtkfil
-BUNDLE=rtkfil.lv2
+LV2NAME=rtkgain
+BUNDLE=rtkgain.lv2
 
-LV2GUI=rtkfilUI_gl
-FILGUI=fil:rtkfil
+LV2GUI=rtkgainUI_gl
+FILGUI=fil:rtkgain
 #######################
 
 LV2UIREQ=
