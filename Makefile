@@ -142,11 +142,11 @@ $(BUILDDIR)manifest.ttl: lv2ttl/manifest.ttl.in Makefile
 	@mkdir -p $(BUILDDIR)
 	sed $(SEDSTR) lv2ttl/manifest.ttl.in > $(BUILDDIR)manifest.ttl
 
-$(BUILDDIR)$(LV2NAME).ttl: lv2ttl/$(LV2NAME).ttl.in lv2ttl/$(LV2NAME).lv2.ttl.in lv2ttl/$(LV2NAME).gui.ttl.in Makefile
+$(BUILDDIR)$(LV2NAME).ttl: lv2ttl/plugin.ttl.in lv2ttl/plugin.lv2.ttl.in lv2ttl/plugin.gui.ttl.in Makefile
 	@mkdir -p $(BUILDDIR)
-	sed $(SEDSTR) lv2ttl/$(LV2NAME).ttl.in > $(BUILDDIR)$(LV2NAME).ttl
-	sed $(SEDSTR) lv2ttl/$(LV2NAME).lv2.ttl.in >> $(BUILDDIR)$(LV2NAME).ttl
-	sed $(SEDSTR) lv2ttl/$(LV2NAME).gui.ttl.in >> $(BUILDDIR)$(LV2NAME).ttl
+	sed $(SEDSTR) lv2ttl/plugin.ttl.in > $(BUILDDIR)$(LV2NAME).ttl
+	sed $(SEDSTR) lv2ttl/plugin.lv2.ttl.in >> $(BUILDDIR)$(LV2NAME).ttl
+	sed $(SEDSTR) lv2ttl/plugin.gui.ttl.in >> $(BUILDDIR)$(LV2NAME).ttl
 
 $(BUILDDIR)$(LV2NAME)$(LIB_EXT): src/$(LV2NAME).cc $(DSPDEPS)
 	@mkdir -p $(BUILDDIR)
