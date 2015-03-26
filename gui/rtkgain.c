@@ -132,7 +132,7 @@ instantiate(void* const               ui_toplevel,
     ui->write = write_function;
     ui->controller = controller;
 
-    ui->frame = rob_hbox_new(FALSE, 2);
+    ui->frame = rob_vbox_new(FALSE, 2);
     robwidget_make_toplevel(ui->frame, ui_toplevel);
     ROBWIDGET_SETNAME(ui->frame, "gtkfil");
 
@@ -154,8 +154,8 @@ instantiate(void* const               ui_toplevel,
 
     // Layout
     rob_table_attach_defaults(ui->w_tbl, robtk_spin_widget(ui->spn_gain), 0, 1, 0 ,1);
-    rob_hbox_child_pack(ui->frame, ui->rw, FALSE, TRUE);
-    rob_hbox_child_pack(ui->frame, ui->w_tbl, TRUE, TRUE);
+    rob_vbox_child_pack(ui->frame, ui->rw, FALSE, TRUE);
+    rob_vbox_child_pack(ui->frame, ui->w_tbl, TRUE, TRUE);
 
     *widget = ui->frame;
 
